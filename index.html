@@ -191,7 +191,6 @@ body[data-theme="dark"] select {
   background-color: #3a3a3a;
   color: #fff;
 }
-/* 💬 Улучшим читаемость текста */
 label, .subtitle {
   font-size: 18px;
 }
@@ -199,7 +198,7 @@ select, textarea {
   font-size: 17px;
 }
 
-/* 🌞 Читаемость в светлой теме */
+/*  Читаемость в светлой теме */
 body[data-theme="light"] select,
 body[data-theme="light"] textarea {
   background-color: #ffffff;
@@ -917,7 +916,6 @@ if (prompt.trim() === '') {
 function copyPrompt() {
   const output = document.getElementById('output');
 
-  // временно уберём readonly, чтобы скопировать текст
   const wasReadonly = output.hasAttribute('readonly');
   if (wasReadonly) output.removeAttribute('readonly');
 
@@ -932,7 +930,7 @@ function copyPrompt() {
       throw new Error('execCommand вернул false');
     }
   } catch (err) {
-    // fallback на navigator.clipboard
+   
     navigator.clipboard.writeText(output.value).then(() => {
       alert('Промт скопирован!');
     }).catch(() => {
@@ -940,7 +938,6 @@ function copyPrompt() {
     });
   }
 
-  // вернём обратно readonly, если он был
   if (wasReadonly) output.setAttribute('readonly', true);
 }
    function toggleHelp() {
