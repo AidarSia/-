@@ -1024,6 +1024,33 @@ function copyPrompt() {
    
 </script>
 
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const generateBtn = document.getElementById("generate");
+    const copyBtn = document.getElementById("copy");
+    const themeBtn = document.getElementById("theme-toggle");
+
+    function generatePrompt() {
+      const prompt = "🎯 Пример сгенерированного промта";
+      document.getElementById("output").textContent = prompt;
+    }
+
+    function copyPrompt() {
+      const text = document.getElementById("output").textContent;
+      navigator.clipboard.writeText(text)
+        .then(() => alert("Скопировано!"))
+        .catch(() => alert("Ошибка копирования"));
+    }
+
+    function toggleTheme() {
+      document.body.classList.toggle("dark-theme");
+    }
+
+    generateBtn.addEventListener("click", generatePrompt);
+    copyBtn.addEventListener("click", copyPrompt);
+    themeBtn.addEventListener("click", toggleTheme);
+  });
+</script>
 
 </body>
 </html>
